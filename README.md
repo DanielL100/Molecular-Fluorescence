@@ -21,7 +21,7 @@ This part consists of the following blocks:
 
 ### Dependencies
 
-* The code requires the "Statistics" folder in order to calculate statistical tests $\chi^2_{red}$ & $P_probability$ and to create residual plots.
+* The code requires the "Statistics" folder in order to calculate statistical tests $\chi^2_{red}$ & $P_{probability}$ and to create residual plots.
 * The code requires the "Fits" folder in order to make fits.
 
 ### Executing program
@@ -30,6 +30,8 @@ This part consists of the following blocks:
 * For part A you sholud provide:
   * Excel sheets which contain in the first column $\lambda$ and in the second one the Intensity for different concentrations.
   * Optional - a noise sheet that contains the background noise measured by a spectrometer.
+   [!WARNING]
+   Our code requires a noise sheet and won't let the code run without it. However, it is not crucial for the experiment and can be removed from the code if needed.
 * For part B you should provide:
   * Photos of fluorescence that contains the edges of the container.
 * For part C you should provide:
