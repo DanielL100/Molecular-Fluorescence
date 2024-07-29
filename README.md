@@ -21,14 +21,21 @@ This part consists of the following blocks:
 8. This block plots all the fluorophores from the previous stage on the same figure.
 
 #### Part B:
-In general, this code make a scaled color plot for each image from which it creates excel files that contains the wave numbers and the log of the intensity for a chosen row of pixles. For each image it fits a linear fit which is used to evaluate the absorption coefficient.
+In general, this code makes a scaled color plot for each image from which it creates excel files that contains the wave numbers and the log of the intensity for a chosen row of pixles. For each image it fits a linear fit which is used to evaluate the absorption coefficient.
 
 This part consists of the following blocks:
 1. This block is provided with images of fluorescence. For each image, according to the fluorophore, it creates a scaled color image with the coressponding RGB channel.
 > [!NOTE]
 > You should make sure that the image contains the container in which the flurophore is in and also that there are minimal reflections in the image.
 2. This block is provided with an excel file that has several sheets, each one is for different fluorophore. Each sheet contains 3 columns - the first one is for the starting pixel of the fluorescence, the second is for the maximum pixel of the fluorescence and the third one is for the row height pixel.
-3. This block is 
+3. This block is provided with the images and with excel files, each contain the wavenumbers and the logarithm of the intensity and their uncertainties. It creates a linear fit for each concentration and fluorophore.
+
+#### Part C:
+In general, this code finds the UP and LP states' wavenumbers using parabolic fit and calculates the k-vectors and energies for each angle. Then it plots the energy dispersion as a function of the transverse momentum for each state and for both of them.
+
+This part consists of the following blocks:
+1. This block is provided with excel files with the wavenumbers and the intensity measured and their uncertainties, a file for each angle. It finds the wavenumbers of the 2 peaks, in which coressponds to the UP and LP states, using parabolic fitting around them. 
+2. This block is provided with 2 excel file, each contains the k-vectors, the corresponding energies and their uncertainties. It fits a curve according to the suggested model in the paper for each state and also plots both the fits on one figure.
 
 
 ## Getting Started
