@@ -32,6 +32,8 @@ This part consists of the following blocks:
   * Optional - a noise sheet that contains the background noise measured by a spectrometer.
    > **WARNING**
    > Our code requires a noise sheet and won't let the code run without it. However, it is not crucial for the experiment and can be removed from the code if needed.
+> [!NOTE]
+> Our code requires a noise sheet and won't let the code run without it. However, it is not crucial for the experiment and can be removed from the code if needed.
 * For part B you should provide:
   * Photos of fluorescence that contains the edges of the container.
 * For part C you should provide:
