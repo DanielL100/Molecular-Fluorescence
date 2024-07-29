@@ -5,7 +5,15 @@ Codes for generating linear and parabolic fits for (dis)confirming of Beer-Lambe
 ## Description
 
 #### Part A:
-This part consists of:
+This part consists of the following blocks:
+1. This block is provided with excel sheets with the wavenumbers and the intensity measured, and also with a noise measurement that is reduced form measurements with intensity larger than the noise. It plots $log(Intensity)$ as a function of wavenumber for each Material and concentration and calculates the area below the intensity using the trapz integration method.
+2. This block plots a graph of all the concentration for the same fluorophore.
+3. This block is provided with excel sheets, each contains the concentrations and the integrals for each fluorophore and their uncertainties. It makes a linear fit for all the data and plot each fluorophore on a different figure.
+4. This block plots all the fluorophores from the previous stage on the same figure.
+5. This block is provided with the starting and ending points in which the data is linear in order to confirm Beer-Lamber law. It makes and plot linear fits for each fluorophore in the chosen range of concentrations.
+6. This block plots all the fluorophores from the previous stage on the same figure.
+7. This block makes a parabolic fit for each fluorophore for all the data.
+8. This block plots all the fluorophores from the previous stage on the same figure.
 
 ## Getting Started
 
