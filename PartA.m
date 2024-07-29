@@ -1,4 +1,4 @@
-%% log(Intensity) as a function of concentration for each Material
+%% log(Intensity) as a function of wavenumber for each Material
 
 % Closing all open figures and clearing command line
 close all
