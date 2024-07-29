@@ -1,11 +1,15 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-authors:
-  - family-names: Goldstein
-    given-names: Ofri
-  - family-names: Leuchter
-    given-names: Daniel
+date-released: 29-7-2024
 title: "Molecular-Fluorescence"
 version: 1.0
-date-released: 29-7-2024
-repository-code: "https://github.com/DanielL100/Molecular-Fluorescence.git"
+preferred-citation:
+  type: misc
+  authors:
+    - family-names: Goldstein
+      given-names: Ofri
+    - family-names: Leuchter
+      given-names: Daniel
+  title: "Molecular-Fluorescence"
+  repository-code: "https://github.com/DanielL100/Molecular-Fluorescence.git"
+  year: 2021
