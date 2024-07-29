@@ -5,6 +5,8 @@ Codes for generating linear and parabolic fits for (dis)confirming of Beer-Lambe
 ## Description
 
 #### Part A:
+In general, this code calculates the integral of given spectrums and makes linear and parabolic fits for all the data and a linear fit for a chosen range of concentrations, for each fluorophore. It also plots all the fits on one figure for comparisons.
+
 This part consists of the following blocks:
 1. This block is provided with excel sheets with the wavenumbers and the intensity measured, and also with a noise measurement that is reduced form measurements with intensity larger than the noise. It plots $log(Intensity)$ as a function of wavenumber for each Material and concentration and calculates the area below the intensity using the trapz integration method.
 2. This block plots a graph of all the concentration for the same fluorophore.
