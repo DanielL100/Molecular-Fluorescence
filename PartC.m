@@ -125,6 +125,17 @@ for angle = -20:2:20
     lambda_up_err(find(angle == -20:2:20)) = (2*fitresult.a*err(1)-fitresult.b*2*err(1))/(4*fitresult.a)
 end
 
+k_down = 2*pi*sin((-20:2:20)*pi/180)./lambda_down
+k_up = 2*pi*sin((-20:2:20)*pi/180)./lambda_up
+E_down = 1240.68./lambda_down
+E_up = 1240.68./lambda_up
+tb = table(k_down'*10^3, E_down', (lambda_down_err.*k_down./lambda_down)'*10^3, (E_down.*lambda_down_err./lambda_down)')
+filename = 'Part C/Energy_upper.xlsx';
+writetable(tb,filename,'Sheet',1,'Range','A1');
+tb = table(k_up'*10^3, E_up', (lambda_up_err.*k_up./lambda_up)'*10^3, (E_up.*lambda_up_err./lambda_up)')
+filename = 'Part C/Energy_lower.xlsx';
+writetable(tb,filename,'Sheet',1,'Range','A1');
+
 
 %% fit data to exciton-polariton
 % gets data from sheets
