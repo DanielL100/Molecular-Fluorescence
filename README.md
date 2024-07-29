@@ -4,7 +4,7 @@ Codes for generating linear and parabolic fits for (dis)confirming of Beer-Lambe
 
 ## Description
 
-> [!NOTE]
+> [!CAUTION]
 > In order for the code to run as expected, one should make the experiment in a dark room with minimal background lights.
 
 #### Part A:
@@ -25,7 +25,7 @@ In general, this code makes a scaled color plot for each image from which it cre
 
 This part consists of the following blocks:
 1. This block is provided with images of fluorescence. For each image, according to the fluorophore, it creates a scaled color image with the coressponding RGB channel.
-> [!NOTE]
+> [!IMPORTANT]
 > You should make sure that the image contains the container in which the flurophore is in and also that there are minimal reflections in the image.
 2. This block is provided with an excel file that has several sheets, each one is for different fluorophore. Each sheet contains 3 columns - the first one is for the starting pixel of the fluorescence, the second is for the maximum pixel of the fluorescence and the third one is for the row height pixel.
 3. This block is provided with the images and with excel files, each contain the wavenumbers and the logarithm of the intensity and their uncertainties. It creates a linear fit for each concentration and fluorophore.
@@ -36,6 +36,9 @@ In general, this code finds the UP and LP states' wavenumbers using parabolic fi
 This part consists of the following blocks:
 1. This block is provided with excel files with the wavenumbers and the intensity measured and their uncertainties, a file for each angle. It finds the wavenumbers of the 2 peaks, in which coressponds to the UP and LP states, using parabolic fitting around them. 
 2. This block is provided with 2 excel file, each contains the k-vectors, the corresponding energies and their uncertainties. It fits a curve according to the suggested model in the paper for each state and also plots both the fits on one figure.
+
+> [!NOTE]
+> Each fit also makes a residual plot and extracts statistical tests into arranged matrices.
 
 
 ## Getting Started
