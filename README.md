@@ -34,8 +34,8 @@ This part consists of the following blocks:
 In general, this code finds the UP and LP states' wavenumbers using parabolic fit and calculates the k-vectors and energies for each angle. Then it plots the energy dispersion as a function of the transverse momentum for each state and for both of them.
 
 This part consists of the following blocks:
-1. This block is provided with excel files with the wavenumbers and the intensity measured and their uncertainties, a file for each angle. It finds the wavenumbers of the 2 peaks, in which coressponds to the UP and LP states, using parabolic fitting around them. 
-2. This block is provided with 2 excel file, each contains the k-vectors, the corresponding energies and their uncertainties. It fits a curve according to the suggested model in the paper for each state and also plots both the fits on one figure.
+1. This block is provided with excel files with the wavenumbers and the intensity measured and their uncertainties, a file for each angle. It finds the wavenumbers of the 2 peaks, in which coressponds to the UP and LP states, using parabolic fitting around them. Also, it creates 2 excel files each contains the k-vectors, the corresponding energies and their uncertainties.
+2. This block is provided with the 2 excel files from the previous stage. It fits a curve according to the suggested model in the paper for each state and also plots both the fits on one figure.
 
 > [!NOTE]
 > Each fit also makes a residual plot and extracts statistical tests into arranged matrices.
