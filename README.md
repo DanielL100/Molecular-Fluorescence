@@ -35,8 +35,8 @@ This part consists of the following blocks:
 
 ### Dependencies
 
-* The code requires the "Statistics" folder in order to calculate statistical tests $\chi^2_{red}$ & $P_{probability}$ and to create residual plots.
-* The code requires the "Fits" folder in order to make fits.
+* The code requires the `Statistics` folder in order to calculate statistical tests $\chi^2_{red}$ & $P_{probability}$ and to create residual plots.
+* The code requires the `Fits` folder in order to make fits.
 
 ### Executing program
 
