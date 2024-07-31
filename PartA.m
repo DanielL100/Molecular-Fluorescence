@@ -1,4 +1,4 @@
-%% log(Intensity) as a function of wave length for each Material
+%% log(Intensity) as a function of wavenumber for each Material
 
 % Closing all open figures and clearing command line
 close all
@@ -40,7 +40,7 @@ for Mat = Material
         plot(x, y)
         xlabel( '$\lambda [nm]$', 'Interpreter', 'Latex', 'FontSize', 14 );
         ylabel( '$Intensity [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-        title(sprintf("%s - %s - With noise", Mat, string(C)), 'Interpreter', 'Latex', 'FontSize', 14);
+        title(sprintf("$Intensity \\: as \\: a \\: function \\: of \\: wavelength \\: for \\: %s - %smM - With \\: noise$", replace(Mat, " ", "\:"), string(C)), 'Interpreter', 'Latex', 'FontSize', 11);
         saveas(gcf, sprintf("Part A/Specs/%s/%s_with_noise.png", Mat, string(C)))
 
         % if the mean of the neighbourhood of the maximum point in y is
@@ -57,7 +57,7 @@ for Mat = Material
             plot(x, y)
             xlabel( '$\lambda [nm]$', 'Interpreter', 'Latex', 'FontSize', 14 );
             ylabel( '$Intensity [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-            title(sprintf("%s - %s - Without noise", Mat, string(C)), 'Interpreter', 'Latex', 'FontSize', 14);
+            title(sprintf("$Intensity \\: as \\: a \\: function \\: of \\: wavelength \\: for \\: %s - %smM - Without \\: noise$", replace(Mat, " ", "\:"), string(C)), 'Interpreter', 'Latex', 'FontSize', 11);
             saveas(gcf, sprintf("Part A/Specs/%s/%s_without_noise.png", Mat, string(C)))
         end
         
@@ -107,7 +107,7 @@ for Mat = Material
     hold off
     xlabel( '$\lambda [nm]$', 'Interpreter', 'Latex', 'FontSize', 14 );
     ylabel( '$Intensity [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-    title(sprintf("%s", Mat), 'Interpreter', 'Latex', 'FontSize', 14);
+    title({"$Intensity \: as \: a \: function \: of \: wavelength$", sprintf("$for \\: various \\: concentrations \\: of \\: %s$", replace(Mat, " ", "\:"))}, 'Interpreter', 'Latex', 'FontSize', 14);
     saveas(gcf, sprintf("Part A/Specs/%s/All Concs.png", Mat))
 end
 
@@ -144,19 +144,19 @@ for Mat = Material
     figure()
     xlabel( '$Concentration [mM]$', 'Interpreter', 'Latex', 'FontSize', 14 );
     ylabel( '$log(Intensity) [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-    title(Mat, 'Interpreter', 'Latex', 'FontSize', 14);
+    title(sprintf('$Scatter\\:plot\\:of\\:all\\:the\\:data\\:of\\:%s$', replace(Mat, " ", "\:")), 'Interpreter', 'Latex', 'FontSize', 14);
     hold on
         %plot(C, log(ints(find(Material == Mat), find(Cont == C))), "Marker", "o", 'HandleVisibility','off', 'Color', Colors(find(Material == Mat)))
     errorbar(x, y, dy / 2, dy / 2, dx / 2, dx / 2, 'LineStyle','none', 'Marker', 'o','MarkerSize',4, 'Color', Colors(find(Material == Mat)));
     hold off
     saveas(gcf, sprintf("Part A/Scatter/%s.png", Mat))
-    plotResiduals(xData, yData, dx, dy, fitresult, sprintf('Part A/Scatter/%s - res', Mat), '$Concentration [mM]$', '$y(i) - f(log(I(i))) [AU]$', sprintf('%s - Residuals', Mat), 'lin_fit')
+    plotResiduals(xData, yData, dx, dy, fitresult, sprintf('Part A/Scatter/%s - res', Mat), '$Concentration [mM]$', '$y(i) - f(log(I(i))) [AU]$', sprintf('$Residual\\:plot\\:for\\:linear\\:fit\\:for\\:all\\:the\\:data\\:of\\:%s$', replace(Mat, " ", "\:")), 'lin_fit')
 end
 %% Plot all 3 materials on one plot
 figure()
 xlabel( '$Concentration [mM]$', 'Interpreter', 'Latex', 'FontSize', 14 );
 ylabel( '$log(Intensity) [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-title("$log(Intensity)\:as\:a\:function\:of\:concentration$", 'Interpreter', 'Latex', 'FontSize', 14);
+title({"$Linear\:fits\:for\:the\:absorption\:as\:a\:function\:of\:fluorophore$","$concentration\:of\:Fluorescein,\:Rhodamine\:6G\:\&\:Rhodamine\:B$"}, 'Interpreter', 'Latex', 'FontSize', 14);
 legend('Location', 'southeast')
 hold on
 for Mat = Material
@@ -173,7 +173,7 @@ end
 hold off
 saveas(gcf, "Part A/All_mats.png")
 
-%% Linear fit for linear area for each material
+%% Linear fit for linear region for each material
 points = [4 5 7]%[4 5 3];
 startPoint = [1 2 3]
 chis_red = [];
@@ -216,7 +216,7 @@ for Mat=Material
     % Label axes
     xlabel( '$Concentration [mM]$', 'Interpreter', 'Latex', 'FontSize', 14 );
     ylabel( '$log(Intensity) [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-    title(Mat, 'Interpreter', 'Latex', 'FontSize', 14);
+    title(sprintf('$Linear\\:fit\\:for\\:the\\:linear\\:region\\:of\\:%s$', replace(Mat, " ", "\:")), 'Interpreter', 'Latex', 'FontSize', 14);
 
     chisq = calcchi2(xData,yData,dx,dy,'lin_fit',coeffvalues(fitresult));
     RChiSquare = chisq/(length(xData)-length(opts.StartPoint)) ;
@@ -227,7 +227,7 @@ for Mat=Material
     chis_red(index) = RChiSquare
     Pprobs(index) = PProb
     saveas(gcf, sprintf("Part A/Linear/%s_linear.png", Mat))
-    plotResiduals(xData, yData, dx, dy, fitresult, sprintf('Part A/Linear/%s - res', Mat), '$Concentration [mM]$', '$y(i) - f(log(I(i))) [AU]$', sprintf('%s - Residuals', Mat), 'lin_fit')
+    plotResiduals(xData, yData, dx, dy, fitresult, sprintf('Part A/Linear/%s - res', Mat), '$Concentration [mM]$', '$y(i) - f(log(I(i))) [AU]$', sprintf('$Residual\\:plot\\:for\\:linear\\:fit\\:for\\:the\\:linear\\:region\\:of\\:%s$', replace(Mat, " ", "\:")), 'lin_fit')
 end
 
 %% All linear fits
@@ -237,7 +237,7 @@ startPoint = [1 2 3]
 f = figure( 'Name', 'untitled fit 1' );
 xlabel( '$Concentration [mM]$', 'Interpreter', 'Latex', 'FontSize', 14 );
 ylabel( '$log(Intensity) [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-title("Linear Fit", 'Interpreter', 'Latex', 'FontSize', 14);
+title({"$Linear\:fit\:for\:the\:linear\:region\:of$","$Fluorescein,\:Rhodamine\:6G\:\&\:Rhodamine\:B$"}, 'Interpreter', 'Latex', 'FontSize', 14);
 legend('Location', 'southeast')
 hold on
 
@@ -317,7 +317,7 @@ for Mat=Material
     % Label axes
     xlabel( '$Concentration [mM]$', 'Interpreter', 'Latex', 'FontSize', 14 );
     ylabel( '$log(Intensity) [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-    title(Mat, 'Interpreter', 'Latex', 'FontSize', 14);
+    title(sprintf('$Parabolic\\:fit\\:for\\:all\\:the\\:data\\:of\\:%s$', replace(Mat, " ", "\:")), 'Interpreter', 'Latex', 'FontSize', 14);
 
     chisq = calcchi2(xData,yData,dx,dy,'parabolic_fit',coeffvalues(fitresult));
     RChiSquare = chisq/(length(xData)-length(opts.StartPoint)) ;
@@ -328,7 +328,7 @@ for Mat=Material
     chis_red(index) = RChiSquare
     Pprobs(index) = PProb
     saveas(gcf, sprintf("Part A/Poly/%s_fourth_poly.png", Mat))
-    plotResiduals(xData, yData, dx, dy, fitresult, sprintf('Part A/Poly/%s - res', Mat), '$Concentration [mM]$', '$y(i) - f(log(I(i))) [AU]$', sprintf('%s - Residuals', Mat), 'parabolic_fit')
+    plotResiduals(xData, yData, dx, dy, fitresult, sprintf('Part A/Poly/%s - res', Mat), '$Concentration [mM]$', '$y(i) - f(log(I(i))) [AU]$', sprintf('$Residual\\:plot\\:for\\:parabolic\\:fit\\:for\\:all\\:the\\:data\\:of\\:%s$', replace(Mat, " ", "\:")), 'parabolic_fit')
 end
 
 %% All Poly fits
@@ -336,7 +336,7 @@ end
 f = figure( 'Name', 'untitled fit 1' );
 xlabel( '$Concentration [mM]$', 'Interpreter', 'Latex', 'FontSize', 14 );
 ylabel( '$log(Intensity) [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 );
-title("Polynomial Fit", 'Interpreter', 'Latex', 'FontSize', 14);
+title({"$Parabolic\:fits\:for\:the\:absorption\:as\:a\:function\:of\:fluorophore$","$concentration\:of\:Fluorescein,\:Rhodamine\:6G\:\&\:Rhodamine\:B$"}, 'Interpreter', 'Latex', 'FontSize', 14);
 legend('Location', 'southeast')
 hold on
 
