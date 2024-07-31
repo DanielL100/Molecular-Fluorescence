@@ -1,6 +1,9 @@
-%% Find UP and LP states their peaks' wave lengths
+%% Find UP and LP states their peaks' wavenumbers
 close all
 clc
+
+Material = ["Fluorescein", "Rhodamine 6G", "Rhodamine B"];
+Cont = [0.0001, 0.0005, 0.0008, 0.001, 0.0025, 0.005, 0.01, 0.025, 0.05, 0.1];
 
 lambda_up = [];
 lambda_down = [];
@@ -35,7 +38,7 @@ for angle = -20:2:20
     plot(upper_max, y_upper, 'Marker', 'O')
     hold off
 
-    % parabolic fit for each maximum in order to find more precise wave lengths
+    % parabolic fit for each maximum in order to find more precise wavenumber
     range = find(xdata == lower_max) - 50:find(xdata == lower_max) + 50
     x = sheet(range, 1)
     y = sheet(range, 2)
@@ -71,7 +74,7 @@ for angle = -20:2:20
     legend('hide')
     xlabel('$\lambda[nm]$', 'Interpreter', 'Latex', 'FontSize', 14 )
     ylabel('$Intensity [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 )
-    title(sprintf('$Intensity\\: as\\: a\\: function\\: of\\: \\lambda\\: for\\: %s^{\\circ} - lower\\: peak$', string(angle)), 'Interpreter', 'Latex', 'FontSize', 14 )
+    title(sprintf('$Parabolic\\:fit\\:around\\:the\\:lower\\:peak\\:for\\:\\theta=%s^{\\circ}$', string(angle)), 'Interpreter', 'Latex', 'FontSize', 14 )
 
     path = sprintf('Part C/Parabolic/%s_lower.jpg', string(angle));
     saveas(gcf, path)
@@ -116,7 +119,7 @@ for angle = -20:2:20
     legend('hide')
     xlabel('$\lambda[nm]$', 'Interpreter', 'Latex', 'FontSize', 14 )
     ylabel('$Intensity [AU]$', 'Interpreter', 'Latex', 'FontSize', 14 )
-    title(sprintf('$Intensity\\: as\\: a\\: function\\: of\\: \\lambda\\: for\\: %s^{\\circ} - higher\\: peak$', string(angle)), 'Interpreter', 'Latex', 'FontSize', 14 )
+    title(sprintf('$Parabolic\\:fit\\:around\\:the\\:higher\\:peak\\:for\\:\\theta=%s^{\\circ}$', string(angle)), 'Interpreter', 'Latex', 'FontSize', 14 )
 
     path = sprintf('Part C/Parabolic/%s_upper.jpg', string(angle));
     saveas(gcf, path)
@@ -193,7 +196,7 @@ hold off
 legend('hide')
 xlabel('$k[1/\mu m]$', 'Interpreter', 'Latex', 'FontSize', 14 )
 ylabel('$E[eV]$', 'Interpreter', 'Latex', 'FontSize', 14 )
-title("$Energy\: as\: a\: function\: of\: k\: - LP$", 'Interpreter', 'Latex', 'FontSize', 14 )
+title("$Energy\: dispersion\: as\: a\: function\: of\: k\: for\: LP$", 'Interpreter', 'Latex', 'FontSize', 14 )
 path = 'Part C/LP.jpg';
 saveas(gcf, path)
 
@@ -213,7 +216,7 @@ hold off
 legend('hide')
 xlabel('$k[1/\mu m]$', 'Interpreter', 'Latex', 'FontSize', 14 )
 ylabel('$E[eV]$', 'Interpreter', 'Latex', 'FontSize', 14 )
-title("$Energy\: as\: a\: function\: of\: k\: - UP$", 'Interpreter', 'Latex', 'FontSize', 14 )
+title("$Energy\: dispersion\: as\: a\: function\: of\: k\: for\: UP$", 'Interpreter', 'Latex', 'FontSize', 14 )
 path = 'Part C/UP.jpg';
 saveas(gcf, path)
 
@@ -235,5 +238,5 @@ hold off
 path = 'Part C/Both.jpg';
 xlabel('$k[1/\mu m]$', 'Interpreter', 'Latex', 'FontSize', 14 )
 ylabel('$E[eV]$', 'Interpreter', 'Latex', 'FontSize', 14 )
-title("$Energy\: as\: a\: function\: of\: k\: - LP\: \&\: UP$", 'Interpreter', 'Latex', 'FontSize', 14 )
+title("$Energy\: dispersion\: as\: a\: function\: of\: k\: for\: LP\: \&\: UP$", 'Interpreter', 'Latex', 'FontSize', 14 )
 saveas(gcf, path)

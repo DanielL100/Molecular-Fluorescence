@@ -13,7 +13,7 @@ for Mat = ["Fluorescein", "Rhodamine 6G", "Rhodamine B"]
         else
             imagesc(A1(:,:,2))
         end
-        title(sprintf("%s - %smM", Mat, string(C)), 'Interpreter', 'Latex', 'FontSize', 14 )
+        title(sprintf("Scaled color image for %smM of %s", string(C), Mat), 'Interpreter', 'Latex', 'FontSize', 14 )
         path = sprintf('Part B/%s/Images/%smM_sc.jpg', Mat, string(C));
         saveas(gcf, path)
     end
@@ -117,7 +117,7 @@ for Mat = Materials
         legend('hide')
         xlabel('x[cm]', 'Interpreter', 'Latex', 'FontSize', 14 )
         ylabel('log(Power) [AU]', 'Interpreter', 'Latex', 'FontSize', 14 )
-        title(sprintf('%s - log(power) as function of distance for %smM', Mat, string(C)), 'Interpreter', 'Latex', 'FontSize', 14 )
+        title(sprintf('Linear fit for %smM of %s', string(C), Mat), 'Interpreter', 'Latex', 'FontSize', 14 )
 
         path = sprintf('Part B/%s/Linear Fit/%smM.jpg', Mat, string(C));
         saveas(gcf, path)
@@ -132,6 +132,6 @@ for Mat = Materials
         chis_red(index_row, index_col) = RChiSquare
         Pprobs(index_row, index_col) = PProb
 
-        plotResiduals(xData, yData, dx, dy, fitresult, sprintf('Part B/%s/Linear Fit/%s - res', Mat, string(C)), '$x [cm]$', '$y(i) - f(log(I(i))) [AU]$', sprintf('%s - %smM - Residuals', Mat, string(C)), 'lin_fit')
+        plotResiduals(xData, yData, dx, dy, fitresult, sprintf('Part B/%s/Linear Fit/%s - res', Mat, string(C)), '$x [cm]$', '$y(i) - f(log(I(i))) [AU]$', sprintf('Residual plot for linear fit for %smM of %s', string(C), Mat), 'lin_fit')
     end
 end
