@@ -1,4 +1,4 @@
-%% Find UP and LP states their peaks' wavenumbers
+%% Find UP and LP states their peaks' wavelengths
 close all
 clc
 
@@ -38,7 +38,8 @@ for angle = -20:2:20
     plot(upper_max, y_upper, 'Marker', 'O')
     hold off
 
-    % parabolic fit for each maximum in order to find more precise wavenumber
+    % parabolic fit for each maximum in order to find more precise
+    % wavelength
     range = find(xdata == lower_max) - 50:find(xdata == lower_max) + 50
     x = sheet(range, 1)
     y = sheet(range, 2)
